@@ -7,7 +7,7 @@ public class KPointCrossover implements Crossover{
     int numberOfPoints;
 
     KPointCrossover(int k){
-        if(k % 2 == 0) this.numberOfPoints = k;
+        if(8 % k == 0) this.numberOfPoints = k;
         else System.out.println("k must be even");
     }
 
@@ -24,18 +24,18 @@ public class KPointCrossover implements Crossover{
     }
 
     public String makeBaby(String d, String m){
-        String[] dad = cutParentIntoChunks(d);
-        String[] mum = cutParentIntoChunks(m);
+        List<String> dad = cutParentIntoChunks(d);
+        List<String> mum = cutParentIntoChunks(m);
         String baby = "";
-        for (int i = 0; i < dad.length; i++) {
-            if(i % 2 == 0) baby += dad[i];
-            else baby += mum[i];
+        for (int i = 0; i < dad.size(); i++) {
+            if(i % 2 == 0) baby += dad.get(i);
+            else baby += mum.get(i);
         }
         return baby;
     }
 
-    public String[] cutParentIntoChunks(String parent) { //TODO check if this works at all
-        List<String> cutUp = new ArrayList<>(Splitter.fixedLength(numberOfPoints).splitToList(parent));
-        return (String[]) cutUp.toArray();
+    public List<String> cutParentIntoChunks(String parent) {
+        List<String> cutUp = new ArrayList<>(Splitter.fixedLength(parent.length() / numberOfPoints).splitToList(parent));
+        return cutUp;
     }
 }

@@ -1,25 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestKPointCrossover {
-    public void testCutParentIntoKChunks(){
-        KPointCrossover crossover = new KPointCrossover(2);
-
+    public static void testCutParentIntoKChunks(int k){
         String parent = "passxxxx";
-        String[] cutParent = crossover.cutParentIntoChunks(parent);
+        KPointCrossover crossover = new KPointCrossover(k);
+        List<String> cutParent = crossover.cutParentIntoChunks(parent);
+
+        List<String> expected = new ArrayList<>();
+        if(k == 2){
+            expected.add("pass");
+            expected.add("xxxx");
+        } else if (k == 4){
+            expected.add("pa");
+            expected.add("ss");
+            expected.add("xx");
+            expected.add("xx");
+        }
+
         System.out.println(cutParent);
-        assertEquals(cutParent, new String[]{"pass", "xxxx"});
+        assertEquals(cutParent, expected);
     }
 
     public static void main(String[] args) {
-        /*
-        TestKPointCrossover test = new TestKPointCrossover();
-        test.testCutParentIntoKChunks();
-        System.out.println(test);
-        */
+        testCutParentIntoKChunks(2);
+        testCutParentIntoKChunks(4);
 
-        KPointCrossover crossover = new KPointCrossover(2);
-        String parent = "passxxxx";
-        String[] cutParent = crossover.cutParentIntoChunks(parent);
-        System.out.println(cutParent);
     }
 }
