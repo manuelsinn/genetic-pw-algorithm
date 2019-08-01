@@ -1,0 +1,9 @@
+Crossover.class
+Main.class
+KPointCrossover.class
+GaussianMutation.class
+Mutation.class
+Selection.class
+UniformCrossover.class
+TruncationSelection.class
+Population.class
