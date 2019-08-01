@@ -3,7 +3,7 @@ import com.google.common.base.Splitter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KPointCrossover implements Crossover{
+public class KPointCrossover extends Crossover{
     int numberOfPoints;
 
     KPointCrossover(int k){
@@ -12,17 +12,6 @@ public class KPointCrossover implements Crossover{
     }
 
     @Override
-    public void makeBabies(Population p) {
-        System.out.println("Babies are made from all these parents.");
-        // individuals are now half the original population
-        List<String> individuals = p.individuals;
-
-        int numberOfParents = individuals.size();
-        for (int i = 0; i < numberOfParents; i += 2) {
-            individuals.add(makeBaby(individuals.get(i), individuals.get(i+1)));
-        }
-    }
-
     public String makeBaby(String d, String m){
         List<String> dad = cutParentIntoChunks(d);
         List<String> mum = cutParentIntoChunks(m);
