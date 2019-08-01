@@ -7,12 +7,10 @@ public class BruteForce {
         while (i < solution.length()) {
 
             for (int ltr = 0; ltr < 26; ltr++) {
+                tries++;
                 if (solution.charAt(i) == (char) (ltr + 97))
                     break;
-                tries++;
             }
-
-
             i++;
         }
 
