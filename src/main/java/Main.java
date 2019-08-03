@@ -1,16 +1,16 @@
 public class Main {
 
     // SET UP -------------------------------------------------
-    static String solution = "password";
+    static String solution = "loldatpasswordtho";
     static BruteForce bruteForce = new BruteForce();
 
     static Selection selection = new TruncationSelection(solution);
-    //static Crossover crossover = new KPointCrossover(4);
+    //static Crossover crossover = new KPointCrossover(4, solution.length());
     static Crossover crossover = new UniformCrossover();
     static Mutation mutation = new GaussianMutation();
 
     //Population population = new Population(new String[]{"aaaaaaaa", "pppppppp", "passxxxx", "xxxxword", "abcdefgh", "ijklmnop", "qrstuvwx", "yzabcdef"});
-    static Population population = new Population(100);
+    static Population population = new Population(100, solution.length());
     // ---------------------------------------------------------
 
     public static void main(String[] args) {

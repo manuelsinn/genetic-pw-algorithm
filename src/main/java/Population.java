@@ -14,15 +14,15 @@ public class Population {
         for(String individual : individuals) this.individuals.add(individual);
     }
 
-    public Population(int size){
-        for (int i = 0; i < size; i++) {
-            individuals.add(spawnRandomBaby());
+    public Population(int populationSize, int pwLength){
+        for (int i = 0; i < populationSize; i++) {
+            individuals.add(spawnRandomBaby(pwLength));
         }
     }
 
-    private String spawnRandomBaby() {
+    private String spawnRandomBaby(int pwLength) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < pwLength; i++) {
             sb.append(getRandomLetter());
         }
         return sb.toString();

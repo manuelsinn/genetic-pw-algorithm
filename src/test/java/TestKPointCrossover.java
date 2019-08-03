@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class TestKPointCrossover {
     public static void testCutParentIntoKChunks(int k){
         String parent = "passxxxx";
-        KPointCrossover crossover = new KPointCrossover(k);
+        KPointCrossover crossover = new KPointCrossover(k, 8);
         List<String> cutParent = crossover.cutParentIntoChunks(parent);
 
         List<String> expected = new ArrayList<>();

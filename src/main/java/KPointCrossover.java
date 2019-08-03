@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KPointCrossover extends Crossover{
-    int numberOfPoints;
+    int numberOfPoints = 2;
 
-    KPointCrossover(int k){
-        if(8 % k == 0) this.numberOfPoints = k;
+    KPointCrossover(int k, int pwLength){
+        if(pwLength % k == 0) this.numberOfPoints = k;
         else System.out.println("k must be even");
     }
 
