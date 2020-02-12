@@ -8,10 +8,9 @@ import java.util.List;
  * with random individuals, all adhering to the specified length.
  */
 public class Population {
+
     String best = "";
-
     public int gen = 1;
-
     List<String> individuals = new ArrayList<>();
 
     public Population(Population p){
@@ -27,6 +26,7 @@ public class Population {
             individuals.add(spawnRandomBaby(pwLength));
         }
     }
+
 
     private String spawnRandomBaby(int pwLength) {
         StringBuilder sb = new StringBuilder();

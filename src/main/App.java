@@ -15,7 +15,10 @@ public class App {
         bruteForce = new BruteForce();
 
         selection = new TruncationSelection(solution);
-        crossover = new UniformCrossover();             //OR: Crossover crossover = new KPointCrossover(4, solution.length());
+
+        crossover = new UniformCrossover();
+        crossover = new KPointCrossover(4, solution.length());
+
         mutation = new GaussianMutation(0.05);
     }
 
@@ -35,6 +38,7 @@ public class App {
         App app = new App();
         String solution = "loldatpasswordtho";
         app.setUp(solution);
+
 
         app.runEvolution();
         app.bruteForce.printNeededTriesForSolution(solution);

@@ -1,8 +1,3 @@
-import java.lang.reflect.Array;
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
-import java.util.Arrays;
-
 public class GaussianMutation implements Mutation {
     double mutationRate;
 
