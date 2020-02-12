@@ -1,5 +1,5 @@
 Crossover.class
-Main.class
+App.class
 KPointCrossover.class
 GaussianMutation.class
 Mutation.class
