@@ -16,7 +16,7 @@ public class App {
 
         selection = new TruncationSelection(solution);
         crossover = new UniformCrossover();             //OR: Crossover crossover = new KPointCrossover(4, solution.length());
-        mutation = new GaussianMutation();
+        mutation = new GaussianMutation(0.05);
     }
 
     /** basic genetic / evolutionary algorithm */
@@ -24,7 +24,7 @@ public class App {
         while(!population.best.equals(solution)) {
             selection.setBest(population);
             selection.naturalSelect(population);
-            crossover.makeBabies(population);
+            crossover.generateNewPopulation(population);
             mutation.mutate(population);
         }
     }

@@ -11,19 +11,19 @@ public class TruncationSelection implements Selection {
     }
 
     /** only keeps the fittest 50% **/
-    @Override
-    public void naturalSelect(Population p) {
-        List<String> individuals = new ArrayList<>(p.individuals);
+    public void naturalSelect(Population population) {
+        List<String> individuals = new ArrayList<>(population.individuals);
 
         individuals.sort(Comparator.comparingDouble(this::calculateFitness).reversed());
 
-        p.individuals.clear();
+        population.individuals.clear();
         for (int i = 0; i < individuals.size()/2; i++) {
-            p.individuals.add(individuals.get(i));
+            population.individuals.add(individuals.get(i));
         }
     }
 
-
+    /** calculates the fitness of an individual.
+     * fitness is implicitly defined here as the proportion of letters that are the same in the solution (=correct), in percent */
     double calculateFitness(String individual){
         double fitness = 0;
         if(individual.length() == solution.length())
@@ -34,6 +34,7 @@ public class TruncationSelection implements Selection {
         return fitness;
     }
 
+    /** sets the populations best as the individual with greatest fitness, and prints it to the console. */
     public void setBest(Population p){
         Optional<String> best = p.individuals.stream().max(Comparator.comparingDouble(this::calculateFitness));
         p.best = best.orElse("");

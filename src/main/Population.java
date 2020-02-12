@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
- * class offers overloaded constructors to deliver a population of individual passwords, either
+ * class offers overloaded constructors to deliver a population of individual passwords,
+ * either from old population,
  * as defined in the given String array, or
  * with random individuals, all adhering to the specified length.
  */
@@ -13,6 +13,10 @@ public class Population {
     public int gen = 1;
 
     List<String> individuals = new ArrayList<>();
+
+    public Population(Population p){
+        this.individuals = p.individuals;
+    }
 
     public Population(String[] individuals) {
         for(String individual : individuals) this.individuals.add(individual);
@@ -34,5 +38,10 @@ public class Population {
 
     private char getRandomLetter() {
         return (char) (int) (Math.random() * 26 + 97);
+    }
+
+    @Override
+    public String toString() {
+        return individuals.toString();
     }
 }
