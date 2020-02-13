@@ -1,7 +1,6 @@
 # genetic-pw-algorithm
-___
+
 Using evolution to crack passwords
-___
 
 ## How it works
 Evolutionary algorithm that uses simulation of natural selection and mutation, to quickly find the right password via a fitness function.
